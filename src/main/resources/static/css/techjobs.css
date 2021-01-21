@@ -29,6 +29,13 @@ table.job-listing {
     width: 80%;
 }
 
+table.job-listing th {
+    font-weight: bold;
+    color: darkblue;
+    border: 1px solid black;
+
+}
+
 table.job-listing td:first-child {
     font-weight: bold;
 }
