@@ -64,6 +64,7 @@ public class JobData {
             jobs = findByValue(value);
             return jobs;
         }
+
         for (Job job : allJobs) {
 
             String aValue = getFieldValue(job, column);
@@ -89,7 +90,6 @@ public class JobData {
         } else {
             theValue = job.getCoreCompetency().toString();
         }
-
         return theValue;
     }
     /**
@@ -118,7 +118,6 @@ public class JobData {
             } else if (job.getCoreCompetency().toString().toLowerCase().contains(value.toLowerCase())) {
                 jobs.add(job);
             }
-
         }
 
         return jobs;

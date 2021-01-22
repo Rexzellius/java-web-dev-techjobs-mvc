@@ -16,12 +16,13 @@ import java.util.HashMap;
  */
 @Controller
 @RequestMapping(value = "list")
-public class ListController extends TechJobsController {
+public class ListController extends TechJobsController{
 
     static HashMap<String, Object> tableChoices = new HashMap<>();
 
     public ListController () {
 
+        tableChoices.put("all", "List Jobs");
         tableChoices.put("employer", JobData.getAllEmployers());
         tableChoices.put("location", JobData.getAllLocations());
         tableChoices.put("positionType", JobData.getAllPositionTypes());

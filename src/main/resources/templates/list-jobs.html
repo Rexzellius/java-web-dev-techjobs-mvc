@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head">
-</head>
+<head th:replace="fragments :: head"> </head>
 <body>
-
 <div th:replace="fragments :: page-header"></div>
-
+<div th:replace="fragments :: nav-links"></div>
 <div class="container body-content">
-
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
     <!-- TODO #1 - Use a loop to display job results in a table. -->
@@ -24,30 +21,33 @@
             <tr>
                 <th>Employer:</th>
                 <td>
-                  <a
-                    th:text="${job.employer}"
-                    th:href="@{/list/jobs(column=employer,value=${job.employer})}">
-                      </a>
+                    <a th:text="${job.employer}"
+                       th:href="@{/list/jobs(column=employer,value=${job.employer})}"
+                    ></a>
+                </td>
+            </tr>
+            <tr>
+                <th>Location:</th>
+                <td>
+                    <a th:text="${job.location}"
+                       th:href="@{/list/jobs(column=location,value=${job.location})}"
+                    ></a>
                 </td>
             </tr>
             <tr>
                 <th>Position Type:</th>
                 <td>
-                    <a
-                      th:text="${job.positionType}"
-                      th:href="@{/list/jobs(column=positionType,value=${job.positionType})}">
-                      </a>
+                    <a th:text="${job.positionType}"
+                       th:href="@{/list/jobs(column=positionType,value=${job.positionType})}"
+                    ></a>
                 </td>
-            </tr>
             <tr>
-                <th>Skills:</th>
+                <th>Skill:</th>
                 <td>
-                    <a
-                       th:text="${job.coreCompetency}"
-                       th:href="@{/list/jobs(column=coreCompetency,value=${job.coreCompetency})}">
-                    </a>
+                    <a th:text="${job.coreCompetency}"
+                       th:href="@{/list/jobs(column=coreCompetency,value=${job.coreCompetency})}"
+                    ></a>
                 </td>
-            </tr>
         </table>
     </th:block>
 </div>
