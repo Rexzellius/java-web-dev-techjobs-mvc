@@ -28,7 +28,12 @@ public class SearchController extends TechJobsController {
     @RequestMapping(value = "results", method = RequestMethod.POST)
     public String displaySearchResults(Model model, String searchType, String searchTerm) {
         model.addAttribute("currentSelection", searchType);
-        ArrayList<Job> jobs = searchType.equals("all") ? JobData.findAll() : JobData.findByColumnAndValue(searchType, searchTerm);
+        ArrayList<Job> jobs;
+        if (searchTerm.toLowerCase().equals("all") || searchTerm.isEmpty()) {
+            jobs = JobData.findAll();
+        } else {
+            jobs = JobData.findByColumnAndValue(searchType, searchTerm);
+        }
         model.addAttribute("jobs", jobs);
         model.addAttribute("title", "Search Results");
         return "search";
